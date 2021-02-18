@@ -1,0 +1,2 @@
+class AdAccountStatusNotFound(Exception):
+    pass

@@ -1,0 +1,23 @@
+/.idea/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+bin/
+build/
+develop-eggs/
+dist/
+.venv/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Django stuff:
+*.log
+*.pot
+/build/
+/test.py
+/run.spec
+
+facebook-api Linux/

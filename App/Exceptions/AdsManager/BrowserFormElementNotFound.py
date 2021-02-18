@@ -1,0 +1,2 @@
+class BrowserFormElementNotFound(Exception):
+    pass

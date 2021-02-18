@@ -1,0 +1,2 @@
+class UserIdNotFound(Exception):
+    pass

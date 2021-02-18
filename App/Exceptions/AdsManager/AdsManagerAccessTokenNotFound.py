@@ -1,0 +1,2 @@
+class AdsManagerAccessTokenNotFound(Exception):
+    pass

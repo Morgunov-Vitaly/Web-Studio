@@ -1,0 +1,2 @@
+class RequestFromBmToAdsManagerFault(Exception):
+    pass
