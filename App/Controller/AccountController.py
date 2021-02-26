@@ -44,7 +44,7 @@ class AccountController:
             raise SystemExit(f'Check the Firefox location option BROWSER_LOCATION in settings! {err}')
 
     def get_ad_manager_access_token(self):
-        self.log.debug('***Trying to login Facebook.com...***')
+        self.log.debug('*** TRYING TO LOGIN FACEBOOK.COM... ***')
 
         self.browser.get(self.facebook_url)
         self.browser.implicitly_wait(self.sleep_time)
@@ -102,7 +102,7 @@ class AccountController:
         self.log.debug('Signed In')
 
         # Getting User Access Token
-        self.log.debug('***Trying to get an access token...***')
+        self.log.debug('*** TRYING TO GET AN ACCESS TOKEN... ***')
         sleep(self.sleep_time)
 
         # Переходим в кабинет рекламодателя Ads manager account
@@ -125,7 +125,7 @@ class AccountController:
         return access_token
 
     def process_request_from_bm_to_ads_manager(self, ad_account, ad_account_id):
-        self.log.debug('***Sending BM request to the Ads Manager...***')
+        self.log.debug('*** SENDING BM REQUEST TO THE ADS MANAGER... ***')
         post_body = {
             'adaccount_id': f'act_{ad_account_id}',
             'permitted_tasks': "['MANAGE','ADVERTISE','ANALYZE']",
@@ -152,13 +152,13 @@ class AccountController:
                     self.log.debug('Закрываем браузер..')
                     self.browser.quit()
                     raise SystemExit(f'Проблема с аккаунтом BM так и не была устранена. Завершаю работу программы...')
-            self.log.debug('***Повторная попытка отправить BM request to the Ads Manager...***')
+            self.log.debug('*** ПОВТОРНАЯ ПОПЫТКА ОТПРАВИТЬ BM REQUEST TO THE ADS MANAGER... ***')
             # Повторный запрос...
             adding_ads_to_business = ad_account.send_post_request(post_body)
             print(adding_ads_to_business)
 
         self.log.debug('BM Request is sent to the Ads Manager successfully')
-        self.log.debug('***Trying to accept the request...***')
+        self.log.debug('*** TRYING TO ACCEPT THE REQUEST... ***')
 
         self.browser.get(
             f'{self.facebook_url}/ads/manager/account_settings/information/?act={ad_account_id}')
@@ -219,7 +219,7 @@ class AccountController:
         ad_account = FacebookGraphService(self.access_token)
 
         # Получим ID пользователя
-        self.log.debug('***Getting UserId...***')
+        self.log.debug('*** GETTING USERID... ***')
         response = ad_account.get_user_id()
         print(response)
         if 'id' not in response:
@@ -232,7 +232,7 @@ class AccountController:
         self.log.debug(f'User: {self.username} {self.email} ID={self.user_id} has been found successfully!')
 
         # Получить список рекламных аккаунтов
-        self.log.debug('***Getting list of User Ad accounts...***')
+        self.log.debug('*** GETTING LIST OF USER AD ACCOUNTS... ***')
         ads_accounts = ad_account.get_user_ad_accounts(self.user_id)
         print(ads_accounts)
 
@@ -246,7 +246,7 @@ class AccountController:
         # Обход списка рекламных аккаунтов
         for ads_account in ads_accounts['data']:
             # Проверка статуса аккаунта(ов)
-            self.log.debug(f"***Checking AdAccount {ads_account['id']} Status...***")
+            self.log.debug(f"*** CHECKING ADACCOUNT {ads_account['id']} STATUS... ***")
 
             if not ad_account.is_ad_account_active(ads_account['account_id']):
                 self.log.inactive_account(
@@ -274,7 +274,7 @@ class AccountController:
                 f'Status code: {ad_account.get_ad_account_status(ads_account["account_id"])}')
 
             # Сhanging of timezone and currency
-            self.log.debug('***Updating currency and timezone...***')
+            self.log.debug('*** UPDATING CURRENCY AND TIMEZONE... ***')
             ads_payload = {
                 'currency': 'USD',
                 'timezone_id': 116,

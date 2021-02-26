@@ -12,7 +12,7 @@ if __name__ == '__main__':
     fault_access_limit = dynaconf.settings.ACCESS_TOKEN_GETTING_FAULTS_LIMIT_NOTIFICATION
 
     log = Log()
-    log.debug('****Запуск скрипта...****')
+    log.debug('**** ЗАПУСК СКРИПТА... ****')
 
     driver_path = Path.get_geckodriver_path()
     log.debug('Defined geckodriver path: ' + driver_path)
@@ -25,7 +25,7 @@ if __name__ == '__main__':
             if not line.strip():
                 continue
 
-            log.debug('***Определяем нового пользователя...***')
+            log.debug('*** ОПРЕДЕЛЯЕМ НОВОГО ПОЛЬЗОВАТЕЛЯ... ***')
             divider = SourceParserService.get_divider(line)
             print(f'Divider: "{divider}"')
 
