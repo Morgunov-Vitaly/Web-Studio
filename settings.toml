@@ -1,57 +1,18 @@
 [default]
-# Developer APP Settings
-APP_ID = '172633887971762'
-APP_SECRET = '2f703e247eaae27275db5d5f960e3351'
-
-# User Access Token продленный и долгосрочный
-# Что бы обновить Access Token прочитайте readme.md
-# BM + Developer ACCESS TOKEN
-ACCESS_TOKEN = 'EAACdAnWRmbIBAFhVvZCiZA9kKbpK2tjZCxJ4JWhMHZCnEU3owGQCV40Rp0ZAipWZAgZAjmGheo6fw7xALHMHyZCmnHfAcMZAyFjfGzZBARZACsTfre3EiKRZC4ShjpxwaUV3gYaKAtwGgZBqpbeviJ7VmZBC5TrGHvJ1jhjyldVDiJHYwtdPEe9oQ9l4aG'
-
-# Аккаунт бизнес менеджера Facebook (BM) https://business.facebook.com
-BUSINESS_ID = '584488375483100'
-
-
-#ОПЦИИ ПРОГРАММЫ
-# Ссылка на файл со списком рекламных аккаунто, для добавления в аккаунт бизнес  менеджера
-ACCOUNTS_FILENAME = 'accs.txt'
-
-# Задержка в секундах при работе скрипта с браузером
-SLEEP_TIME = 3
-
-# Настройки браузера
-BROWSER_LOCATION = 'C:\Program Files (x86)\Mozilla Firefox\firefox.exe'
-
-# Опция отвечает за фоновый режим работы браузера True - браузер не будет показан
-HIDE_BROWSER = 0
-
-# Максимальное количество неудачных попыток получить access_token клиентов
-# перед запросом на смену IP
-ACCESS_TOKEN_GETTING_FAULTS_LIMIT_NOTIFICATION = 3
-
-# Максимальное количество обнаруженных неактивных рекламных аккаунтов клиентов
-# перед запросом на смену IP
-INACTIVE_ACCOUNTS_LIMIT_NOTIFICATION = 100
-
-# Версия Facebook Graph API
-FACEBOOK_GRAPH_URL = 'https://graph.facebook.com/v9.0'
-
-# Ссылка на фейсбук
-FACEBOOK_URL = 'https://www.facebook.com'
-
-# СЕЛЕКТОРЫ HTML элементов (Если перестали отыскиваться элементы):
-
-# Форма авторизации Поле email
-LOGIN_FORM_EMAIL_FIELD = 'email'
-
-# Форма авторизации Поле пароль
-LOGIN_FORM_PASSWORD_FIELD = 'pass'
-
-# Форма авторизации Кнопка Для отправки логина и пароля
-LOGIN_FORM_SUBMIT_BUTTON = 'u_0_d'
-
-# Рекламный аккаунт кнопка Ответить на запрос
-CONFIRM_REQUEST_BUTTON = 'a._42ft'
-
-# Рекламный аккаунт Модальное окно Ссылка Предоставить доступ
-CONFIRM_REQUEST_LINK = '._3m_7 > a:nth-child(1)'
+APP_ID = "172633887971762"
+APP_SECRET = "2f703e247eaae27275db5d5f960e3351"
+ACCESS_TOKEN = "EAACdAnWRmbIBAFhVvZCiZA9kKbpK2tjZCxJ4JWhMHZCnEU3owGQCV40Rp0ZAipWZAgZAjmGheo6fw7xALHMHyZCmnHfAcMZAyFjfGzZBARZACsTfre3EiKRZC4ShjpxwaUV3gYaKAtwGgZBqpbeviJ7VmZBC5TrGHvJ1jhjyldVDiJHYwtdPEe9oQ9l4aG"
+BUSINESS_ID = "584488375483100"
+ACCOUNTS_FILENAME = "C:/Users/Vitaly/Projects/facebook-api/accs.txt"
+SLEEP_TIME = "3"
+BROWSER_LOCATION = "C:/Program Files (x86)/Mozilla Firefox/firefox.exe"
+ACCESS_TOKEN_GETTING_FAULTS_LIMIT_NOTIFICATION = "3"
+INACTIVE_ACCOUNTS_LIMIT_NOTIFICATION = "3"
+FACEBOOK_GRAPH_URL = "https://graph.facebook.com/v9.0"
+FACEBOOK_URL = "https://www.facebook.com"
+LOGIN_FORM_EMAIL_FIELD = "email"
+LOGIN_FORM_PASSWORD_FIELD = "pass"
+LOGIN_FORM_SUBMIT_BUTTON = "u_0_d"
+CONFIRM_REQUEST_BUTTON = "a._42ft"
+CONFIRM_REQUEST_LINK = "._3m_7 > a:nth-child(1)"
+HIDE_BROWSER = false

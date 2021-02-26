@@ -1,4 +1,4 @@
-from App.Services.PathService import Path
+import App.Services.PathService as Path
 import logging
 
 
@@ -19,7 +19,6 @@ class OneLineExceptionFormatter(logging.Formatter):
 
 class Log:
     def __init__(self):
-        self.path = Path()
 
         self.logger = logging.getLogger()
         self.logger.setLevel(logging.DEBUG)
@@ -27,12 +26,12 @@ class Log:
                                       '%Y-%m-%d %H:%M:%S')
 
         # to log debug messages
-        self.debug_log = logging.FileHandler(self.path.get_logs_path_with_datetime(' debug.log'), 'w', 'utf-8')
+        self.debug_log = logging.FileHandler(Path.get_logs_full_path_with_datetime_prefix(' debug.log'), 'w', 'utf-8')
         self.debug_log.setLevel(logging.DEBUG)
         self.debug_log.setFormatter(f)
 
         # to log errors
-        self.error_log = logging.FileHandler(self.path.get_logs_path_with_datetime(' error.log'), 'w', 'utf-8')
+        self.error_log = logging.FileHandler(Path.get_logs_full_path_with_datetime_prefix(' error.log'), 'w', 'utf-8')
         self.error_log.setLevel(logging.ERROR)
         self.error_log.setFormatter(f)
 
@@ -51,12 +50,14 @@ class Log:
         self.logger.error(message)
         print(message)
 
-    def inactive_account(self, message):
-        file = open(self.path.get_logs_path(" inactive-accounts.log"), "a")
+    @staticmethod
+    def inactive_account(message):
+        file = open(Path.get_correct_full_logs_path(" inactive-accounts.log"), "a")
         file.write(str(message) + '\n')
         file.close()
 
-    def successfully_accepted_user(self, message):
-        file = open(self.path.get_logs_path(" successfully-accepted-users"), "a")
+    @staticmethod
+    def successfully_accepted_user(message):
+        file = open(Path.get_correct_full_logs_path(" successfully-accepted-users"), "a")
         file.write(str(message) + '\n')
         file.close()

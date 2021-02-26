@@ -4,7 +4,7 @@ import requests
 import dynaconf
 
 
-class FacebookGraphService:
+class FacebookGraphAPIService:
     def __init__(self, access_token):
         self.access_token = access_token
 
