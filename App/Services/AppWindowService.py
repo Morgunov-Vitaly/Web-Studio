@@ -50,9 +50,11 @@ class AppWindowService(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def start_scrypt_event(self):
         self.settings_service.update_settings_from_fields(self)
+        if self.settings_service.is_settings_changed:
+           self.settings_service.save_settings_to_file()
+           self.settings_service.is_settings_changed = False
         self.statusbar.showMessage('Script started')
         self.start()
-        # todo добавить запуск скрипта из модуля ScriptController
 
     # Обновление поля с именем файла исходных даннфх пользователей с помощью диалога поиска файла
     def get_accounts_filename(self):
